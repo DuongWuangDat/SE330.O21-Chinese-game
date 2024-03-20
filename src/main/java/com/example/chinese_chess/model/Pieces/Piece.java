@@ -1,16 +1,11 @@
 package com.example.chinese_chess.model.Pieces;
-import java.util.ArrayList;
 
+import com.example.chinese_chess.controller.ImageController.*;
 import javafx.geometry.Point2D;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
-import javafx.scene.input.MouseEvent;
-import javafx.scene.input.MouseDragEvent;
-import javafx.scene.shape.Rectangle;
-import java.lang.Math;
+
+import java.util.ArrayList;
 
 public class Piece{
     double x;
@@ -22,7 +17,7 @@ public class Piece{
     Pane pane;
     final double RATIO = 0.6;
     ImageView image_view;
-    double org_sceneX, org_sceneY, org_translateX, org_translateY;
+    ImageProperties imageProperties;
     double moveX, moveY;
 
     public Piece(double x, double y, double alpha, char side, Pane pane){
@@ -87,7 +82,9 @@ public class Piece{
         pane.getChildren().add(this.image_view);
     }
 
-
+    public void addDragAndDrop(){
+        com.example.chinese_chess.controller.ImageController.EventForImage.addDragAndDrop(this.image_view,this.imageProperties);
+    }
 
     // Override toString
     public String toString(){
