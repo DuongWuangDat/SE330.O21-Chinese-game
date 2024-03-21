@@ -66,7 +66,7 @@ public class Piece{
 
     // Helper Functions
     public ImageView createImageView(String image_location, double width, double height){
-        return com.example.chinese_chess.controller.ImageController.ImageSet.createImageView(image_location,width,height);
+        return ImageSet.createImageView(image_location,width,height);
     }
 
     public void setupImageView(){
@@ -83,7 +83,7 @@ public class Piece{
     }
 
     public void addDragAndDrop(){
-        com.example.chinese_chess.controller.ImageController.EventForImage.addDragAndDrop(this.image_view,this.imageProperties);
+        EventForImage.addDragAndDrop(this.image_view,this.imageProperties);
     }
 
     // Override toString
