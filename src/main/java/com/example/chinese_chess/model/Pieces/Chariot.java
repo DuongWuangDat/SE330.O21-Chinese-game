@@ -1,6 +1,5 @@
 package com.example.chinese_chess.model.Pieces;
-
-
+import com.example.chinese_chess.Image_Strings.Image_Locations;
 import javafx.geometry.Point2D;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
@@ -12,12 +11,12 @@ public class Chariot extends Piece {
     public Chariot(double x, double y, double alpha, char side, Pane pane){
         super(x,y,alpha,side,pane);
         if(side == 'R'){
-            image_view = createImageView("com/example/chinese_chess/Resource/img/CChessBoard.png", 45, 45);
+            image_view = createImageView(Image_Locations.red_chariotImage, 45, 45);
             image_view.setFitWidth(45);
             image_view.setFitHeight(45);
         }
         else{
-            image_view = createImageView("com/example/chinese_chess/Resource/img/CChessBoard.png", 45, 45);
+            image_view = createImageView(Image_Locations.black_chariotImage, 45, 45);
             image_view.setFitWidth(45);
             image_view.setFitHeight(45);
         }
