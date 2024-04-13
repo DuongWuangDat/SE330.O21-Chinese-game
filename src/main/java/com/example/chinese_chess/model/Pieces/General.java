@@ -3,10 +3,11 @@ import com.example.chinese_chess.Image_Strings.Image_Locations;
 import javafx.geometry.Point2D;
 import javafx.scene.layout.Pane;
 
+import java.net.MalformedURLException;
 import java.util.ArrayList;
 
 public class General extends Piece  {
-    public General(double x, double y, double alpha, char side, Pane pane){
+    public General(double x, double y, double alpha, char side, Pane pane) throws MalformedURLException {
         super(x,y,alpha,side,pane);
         if(side == 'R'){
             image_view = createImageView(Image_Locations.red_generalImage, 45, 45);

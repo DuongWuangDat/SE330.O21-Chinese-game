@@ -5,6 +5,7 @@ import com.example.chinese_chess.model.Pieces.*;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 
+import java.net.MalformedURLException;
 import java.util.Arrays;
 
 
@@ -17,7 +18,7 @@ public class Side{
     Cannon left_cannon, right_cannon;
     Soldier soldier_one, soldier_two, soldier_three, soldier_four, soldier_five;
 
-    public Side(char side, Board board1){ // 'R' or 'B'
+    public Side(char side, Board board1) throws MalformedURLException { // 'R' or 'B'
         StackPane[][] board = board1.getSPArr();
         Piece[][] data_board = board1.getPArr();
         if(side == 'R'){ // Red side

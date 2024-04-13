@@ -17,19 +17,19 @@ import javafx.scene.control.Button;
 import javafx.geometry.Bounds;
 import javafx.geometry.Point2D;
 
+import java.net.MalformedURLException;
 import java.util.ArrayList;
-
+import com.example.chinese_chess.Image_Strings.Image_Locations;
 public class Board{
-
     boolean win = false;
-    BoardProperties boardProperties;
+    BoardProperties boardProperties = new BoardProperties();
     Scene win_screen;
 
-    public Board(Pane pane, Stage primaryStage,Scene start_screen) {
-        ImageView chess_board = createImageView("Images/CChessBoard.png",true);
+    public Board(Pane pane, Stage primaryStage,Scene start_screen) throws MalformedURLException {
+        ImageView chess_board = createImageView(Image_Locations.chess_boardImage,true);
         setupCapturedPieces(pane); // Set up the captured pieces
-        boardProperties.red_turn = createImageView("Images/CChessBoard.png", false);
-        boardProperties.black_turn = createImageView("Images/CChessBoard.png", false);
+        boardProperties.red_turn = createImageView(Image_Locations.chess_boardImage, false);
+        boardProperties.black_turn = createImageView(Image_Locations.chess_boardImage, false);
         boardProperties.player_turn = boardProperties.red_turn;
         pane.getChildren().add(boardProperties.player_turn);
         boardProperties.player_turn.relocate(990 * boardProperties.RATIO, 30 * boardProperties.RATIO);
@@ -58,7 +58,7 @@ public class Board{
         }
         boardProperties.red_side = new Side('R', this);
         boardProperties.black_side = new Side('B', this);
-        ((Pane)start_screen.getRoot()).getChildren().addAll(chess_board,pane);
+        //((Pane)start_screen.getRoot()).getChildren().addAll(chess_board,pane);
         Board_Event.printDataBoard(boardProperties);
         primaryStage.setScene(start_screen);
     }
@@ -88,9 +88,9 @@ public class Board{
         return new Button("", createImageView(image_location, false));
     }
 
-    public void setupCapturedPieces(Pane pane){
-        boardProperties.captured_red_side = new Captured('R', pane, true); // Setup captured red pieces
-        boardProperties.captured_black_side = new Captured('B', pane, true); // Setup captured black pieces
+    public void setupCapturedPieces(Pane pane) throws MalformedURLException {
+        this.boardProperties.captured_red_side = new Captured('R', pane, true); // Setup captured red pieces
+        this.boardProperties.captured_black_side = new Captured('B', pane, true); // Setup captured black pieces
     }
 
     public boolean getWin(){

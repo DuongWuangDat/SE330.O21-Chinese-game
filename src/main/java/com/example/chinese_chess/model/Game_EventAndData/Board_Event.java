@@ -1,5 +1,6 @@
 package com.example.chinese_chess.model.Game_EventAndData;
 
+import com.example.chinese_chess.model.Board;
 import com.example.chinese_chess.model.BoardProperties;
 import com.example.chinese_chess.model.Pieces.Piece;
 import javafx.event.EventHandler;
@@ -174,5 +175,63 @@ public class Board_Event {
         System.out.println(ret);
     }
 
+    // Checking for Chess
+    public static boolean isRedInCheck(BoardProperties boardProperties) {
+       Point2D redGenCoor = getRedGenCoordinate(boardProperties);
+        for (int row = 0; row < 10; row++) {
+            for (int col = 0; col < 9; col++) {
+                Piece piece = boardProperties.dataBoard[row][col];
+                if(piece.getSide()=='B'){
+                    ArrayList<Point2D> move = piece.getLegalMoves(boardProperties.dataBoard);
+                    if(move.contains(redGenCoor)){
+                        return true;
+                    }
+                }
+            }
+        }
 
+       return false;
+    }
+
+    public static boolean isBlackInCheck(BoardProperties boardProperties) {
+        Point2D blackGenCoor = getBlackGenCoordinate(boardProperties);
+        for (int row = 0; row < 10; row++) {
+            for (int col = 0; col < 9; col++) {
+                Piece piece = boardProperties.dataBoard[row][col];
+                if(piece.getSide()=='R'){
+                    ArrayList<Point2D> move = piece.getLegalMoves(boardProperties.dataBoard);
+                    if(move.contains(blackGenCoor)){
+                        return true;
+                    }
+                }
+            }
+        }
+
+        return false;
+    }
+    // Get General coordinate
+    public static Point2D getRedGenCoordinate(BoardProperties boardProperties){
+        for (int row = 0; row < 10; row++) {
+            for (int col = 0; col < 9; col++) {
+                Piece piece = boardProperties.dataBoard[row][col];
+                if(piece.toString().equals("Ge") && piece.getSide() =='R'){
+                    return new Point2D(piece.getX(),piece.getY());
+                }
+            }
+        }
+        return new Point2D(0,0);
+    }
+
+
+    public static Point2D getBlackGenCoordinate(BoardProperties boardProperties){
+        for (int row = 0; row < 10; row++) {
+            for (int col = 0; col < 9; col++) {
+                Piece piece = boardProperties.dataBoard[row][col];
+                if(piece.toString().equals("Ge") && piece.getSide() =='B'){
+                    return new Point2D(piece.getX(),piece.getY());
+                }
+            }
+        }
+        return new Point2D(0,0);
+    }
 }

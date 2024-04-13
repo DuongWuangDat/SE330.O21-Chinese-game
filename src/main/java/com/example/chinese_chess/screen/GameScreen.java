@@ -6,6 +6,8 @@ import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
+import java.net.MalformedURLException;
+
 public class GameScreen extends Application {
 
     public static void main(String[] args) {
@@ -13,9 +15,9 @@ public class GameScreen extends Application {
     }
 
     @Override
-    public void start(Stage primaryStage) {
+    public void start(Stage primaryStage) throws MalformedURLException {
         Pane root = new Pane();
-        Scene scene = new Scene(root, 1200, 800); // Đặt kích thước của cửa sổ ứng dụng
+        Scene scene = new Scene(root, 1200, 800); // Đặt size của cửa sổ ứng dụng
 
         // Tạo đối tượng bảng cờ
         Board board = new Board(root, primaryStage, scene);

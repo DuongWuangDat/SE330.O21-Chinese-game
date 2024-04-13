@@ -3,6 +3,8 @@ import com.example.chinese_chess.model.Pieces.*;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 
+import java.net.MalformedURLException;
+
 public class Captured{
     General general;
     Advisor left_advisor, right_advisor;
@@ -13,7 +15,7 @@ public class Captured{
     Soldier soldier_one, soldier_two, soldier_three, soldier_four, soldier_five;
     int soldier_cnt, advisor_cnt, elephant_cnt, horse_cnt, chariot_cnt, cannon_cnt;
 
-    public Captured(char side, Pane pane, boolean captured){ // 'R' or 'B'
+    public Captured(char side, Pane pane, boolean captured) throws MalformedURLException { // 'R' or 'B'
         soldier_cnt = 1;
         advisor_cnt = 1;
         elephant_cnt = 1;
