@@ -12,12 +12,12 @@ public class Chariot extends Piece {
     public Chariot(double x, double y, double alpha, char side, Pane pane) throws MalformedURLException {
         super(x,y,alpha,side,pane);
         if(side == 'R'){
-            image_view = createImageView(Image_Locations.red_chariotImage, 45, 45);
+            image_view = createImageView(Image_Locations.red_chariotImage);
             image_view.setFitWidth(45);
             image_view.setFitHeight(45);
         }
         else{
-            image_view = createImageView(Image_Locations.black_chariotImage, 45, 45);
+            image_view = createImageView(Image_Locations.black_chariotImage);
             image_view.setFitWidth(45);
             image_view.setFitHeight(45);
         }

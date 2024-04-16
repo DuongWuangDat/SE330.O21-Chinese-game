@@ -129,6 +129,8 @@ public class Board_Event {
                     if(s_pane.getChildren().size() > 1
                             && s_pane.getChildren().get(1) instanceof ImageView){
                         Piece piece = getPieceFromPane(s_pane, boardProperties);
+                        piece.setPaneXY(boardProperties.piece_oneX, boardProperties.piece_oneY);
+                        System.out.println(piece.toString());
                         if(piece.getSide() == boardProperties.turn){
                             boardProperties.validPoints = new ArrayList<Point2D>();
                             boardProperties.validPoints = piece.getLegalMoves(boardProperties.dataBoard);
@@ -152,8 +154,8 @@ public class Board_Event {
 
     public static void getArrCoor(StackPane s_pane, BoardProperties boardProperties){
         Bounds point = s_pane.localToScene(s_pane.getBoundsInLocal());
-        boardProperties.piece_oneX = (int)((point.getMinX()) / (boardProperties.spacing * boardProperties.RATIO));
-        boardProperties.piece_oneY = (int)((point.getMinY()) / (boardProperties.spacing * boardProperties.RATIO));
+        boardProperties.piece_oneX = (int)((point.getMinX()) / (boardProperties.spacing ));
+        boardProperties.piece_oneY = (int)((point.getMinY()) / (boardProperties.spacing ));
     }
     public static Piece getPieceFromPane(StackPane s_pane, BoardProperties boardProperties){
         getArrCoor(s_pane, boardProperties);

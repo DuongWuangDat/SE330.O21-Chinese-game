@@ -13,7 +13,7 @@ public class BoardProperties {
     public StackPane[][] board;
     public Piece[][] dataBoard;
     public final double RATIO = 0.6;
-    public int x = 50, y = 50, spacing = 45;
+    public int x = 60, y = 60, spacing = 60;
     public double org_sceneX, org_sceneY, org_translateX, org_translateY;
     public double moveX, moveY;
     public int piece_oneX;

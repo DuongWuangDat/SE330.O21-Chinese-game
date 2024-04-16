@@ -62,17 +62,17 @@ public class ImageSet {
             // Create the image and set it to the ImageView
             Image image = new Image(imageStream);
             image_view.setImage(image);
-            image_view.relocate(50, 50);
+            image_view.relocate(60, 60);
 
             // Set dimensions based on background flag
             if (background) {
-                image_view.setFitWidth(45 * 9);
-                image_view.setFitHeight(45 * 10);
+                image_view.setFitWidth(60 * 9);
+                image_view.setFitHeight(60 * 10);
             } else {
-                image_view.setFitWidth(45);
-                image_view.setFitHeight(45);
-                image_view.setX(0);
-                image_view.setY(0);
+                image_view.setFitWidth(60);
+                image_view.setFitHeight(60);
+                image_view.setX(20);
+                image_view.setY(20);
             }
 
             // Set additional properties

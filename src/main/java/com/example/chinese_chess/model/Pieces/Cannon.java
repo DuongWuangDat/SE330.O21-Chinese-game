@@ -12,12 +12,12 @@ public class Cannon extends Piece {
     public Cannon(double x, double y, double alpha, char side, Pane pane) throws MalformedURLException {
         super(x,y,alpha,side,pane);
         if(side == 'R'){
-            image_view = createImageView(Image_Locations.red_cannonImage, 45, 45);
+            image_view = createImageView(Image_Locations.red_cannonImage);
             image_view.setFitWidth(45);
             image_view.setFitHeight(45);
         }
         else{
-            image_view = createImageView(Image_Locations.black_cannonImage, 45, 45);
+            image_view = createImageView(Image_Locations.black_cannonImage);
             image_view.setFitWidth(45);
             image_view.setFitHeight(45);
         }

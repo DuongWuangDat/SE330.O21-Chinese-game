@@ -10,12 +10,12 @@ public class Soldier extends  Piece {
     public Soldier(double x, double y, double alpha, char side, Pane pane) throws MalformedURLException {
         super(x,y,alpha,side,pane);
         if(side == 'R'){
-            image_view = createImageView(Image_Locations.red_soldierImage, 45, 45);
+            image_view = createImageView(Image_Locations.red_soldierImage);
             image_view.setFitWidth(45);
             image_view.setFitHeight(45);
         }
         else{
-            image_view = createImageView(Image_Locations.black_soldierImage, 45, 45);
+            image_view = createImageView(Image_Locations.black_soldierImage);
             image_view.setFitWidth(45);
             image_view.setFitHeight(45);
         }

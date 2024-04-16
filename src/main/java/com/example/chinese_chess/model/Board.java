@@ -26,19 +26,19 @@ public class Board{
     Scene win_screen;
 
     public Board(Pane pane, Stage primaryStage,Scene start_screen) throws MalformedURLException {
-        ImageView chess_board = createImageView(Image_Locations.chess_boardImage,true);
+        ImageView chess_board = createImageView(Image_Locations.chess_boardImage,60*9, 60*10);
         setupCapturedPieces(pane); // Set up the captured pieces
         boardProperties.red_turn = createImageView(Image_Locations.chess_boardImage, false);
         boardProperties.black_turn = createImageView(Image_Locations.chess_boardImage, false);
         boardProperties.player_turn = boardProperties.red_turn;
         pane.getChildren().add(boardProperties.player_turn);
-        boardProperties.player_turn.relocate(990 * boardProperties.RATIO, 30 * boardProperties.RATIO);
+        boardProperties.player_turn.relocate( 900, 40 );
         boardProperties.board = new StackPane[10][9];
         boardProperties.dataBoard = new Piece[10][9];
-        for (int i = 0; i < 10; i++) {
-            for (int j = 0; j < 9; j++) {
+        for (int row = 0; row < 10; row++) {
+            for (int col = 0; col < 9; col++) {
                 StackPane s_pane = new StackPane();
-                Rectangle rect = new Rectangle((boardProperties.x + j * boardProperties.spacing + boardProperties.spacing*0.5), (boardProperties.y + i * boardProperties.spacing + boardProperties.spacing*0.5), boardProperties.spacing, boardProperties.spacing);
+                Rectangle rect = new Rectangle( col * boardProperties.spacing,  row * boardProperties.spacing,boardProperties.spacing, boardProperties.spacing);
                 //rect.setFill(Color.rgb(183, 17, 17, 0.4));
                 rect.setFill(Color.TRANSPARENT);
                 rect.setStroke(Color.TRANSPARENT);
@@ -52,8 +52,8 @@ public class Board{
                 Board_Event.setOnMouseClicked(pane,s_pane,boardProperties);
                 pane.getChildren().add(s_pane);
                 s_pane.setManaged(true);
-                s_pane.relocate((boardProperties.x + j * boardProperties.spacing) * boardProperties.RATIO, (boardProperties.y + i * boardProperties.spacing) * boardProperties.RATIO);
-                boardProperties.board[i][j] = s_pane;
+                s_pane.relocate( col * boardProperties.spacing,  row * boardProperties.spacing);
+                boardProperties.board[row][col] = s_pane;
             }
         }
         boardProperties.red_side = new Side('R', this);
@@ -76,8 +76,8 @@ public class Board{
 
 
 
-    public ImageView createImageView(String image_location){
-        return ImageSet.createImageView(image_location, true);
+    public ImageView createImageView(String image_location, double width, double height){
+        return ImageSet.createImageView(image_location, width, height);
     }
 
     public ImageView createImageView(String image_location, boolean background){

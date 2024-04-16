@@ -20,6 +20,8 @@ public class Piece{
     ImageProperties imageProperties;
     double moveX, moveY;
 
+
+
     public Piece(double x, double y, double alpha, char side, Pane pane){
         this.x = x;
         this.y = y;
@@ -65,8 +67,8 @@ public class Piece{
     }
 
     // Helper Functions
-    public ImageView createImageView(String image_location, double width, double height){
-        return ImageSet.createImageView(image_location,width,height);
+    public ImageView createImageView(String image_location){
+        return ImageSet.createImageView(image_location,60,60);
     }
 
     public void setupImageView(){
